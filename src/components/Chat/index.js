@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
-import { useSelector } from 'react-redux';
+import { Row, Col } from 'react-bootstrap';
+
 import MessageBox from './MessageBox';
 import socketServer from '../Socket';
 import './chat.css';

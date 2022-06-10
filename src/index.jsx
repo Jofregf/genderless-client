@@ -7,6 +7,11 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import store from './redux/store/store';
 
+import dotenv from "dotenv";
+dotenv.config();
+
+const baseURL = process.env.REACT_APP_API || "http://localhost:3001";
+
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
@@ -21,6 +26,8 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root'),
 );
+
+export default baseURL;
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

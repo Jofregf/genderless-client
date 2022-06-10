@@ -1,4 +1,5 @@
 import axios from 'axios';
+import baseURL from '../../index';
 
 export const ADD_PRODUCT = 'ADD_PRODUCT'
 export const GET_SHOPPING = 'GET_SHOPPING'
@@ -11,7 +12,7 @@ export const ERROR = 'ERROR';
 
 // Habilitada
 export const addProduct = ( {email, productId, productSize, productQuantity} ) => async (dispatch) => {
-  await axios.post('http://localhost:3001/usuario/shoppingcart', { email, productId, productSize, productQuantity }).then(
+  await axios.post(`${baseURL}/usuario/shoppingcart`, { email, productId, productSize, productQuantity }).then(
     (response) => {
       dispatch({
         type: ADD_PRODUCT,
@@ -29,7 +30,7 @@ export const addProduct = ( {email, productId, productSize, productQuantity} ) =
 
 // Habilitada
 export const putProduct = ( {email, productId, productQuantity} ) => async (dispatch) => {
-  await axios.put('http://localhost:3001/usuario/shoppingcart', { email, productId, productQuantity }).then(
+  await axios.put(`${baseURL}/usuario/shoppingcart`, { email, productId, productQuantity }).then(
     (response) => {
       dispatch({
         type: ADD_PRODUCT,
@@ -47,7 +48,7 @@ export const putProduct = ( {email, productId, productQuantity} ) => async (disp
 
 // Habilitada
 export const getShopping = ( {email} ) => async (dispatch) => {
-  await axios.get(`http://localhost:3001/usuario/shoppingcart/${email}`).then(
+  await axios.get(`${baseURL}/usuario/shoppingcart/${email}`).then(
     (response) => {
       dispatch({
         type: GET_SHOPPING,
@@ -65,7 +66,7 @@ export const getShopping = ( {email} ) => async (dispatch) => {
 
 // Habilitada
 export const returnProduct = ( {email, productId} ) => async (dispatch) => {
-  await axios.delete(`http://localhost:3001/usuario/shoppingcart/${email}/${productId}`).then(
+  await axios.delete(`${baseURL}/usuario/shoppingcart/${email}/${productId}`).then(
     (response) => {
       dispatch({
         type: RETURN_PRODUCT,
@@ -83,7 +84,7 @@ export const returnProduct = ( {email, productId} ) => async (dispatch) => {
 
 // Habilitada
 export const emptyShopping = ( {email} ) => async (dispatch) => {
-  await axios.delete(`http://localhost:3001/usuario/deleteshoppingcart/${email}`).then(
+  await axios.delete(`${baseURL}/usuario/deleteshoppingcart/${email}`).then(
     (response) => {
       dispatch({
         type: EMPTY_SHOPPING,

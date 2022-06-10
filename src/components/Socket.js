@@ -1,6 +1,6 @@
 import io from 'socket.io-client';
-
-let socketServer = io(process.env.PORT || "http://localhost:3001");
+import baseUrl from '../index'
+let socketServer = io(baseUrl);
 
 export default socketServer;
 

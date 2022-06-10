@@ -1,4 +1,5 @@
 import axios from 'axios';
+import baseURL from '../../index';
 
 export const ADD_META_ORDER = 'ADD_META_ORDER';
 export const GET_META_ORDERS = 'GET_META_ORDERS';
@@ -11,7 +12,7 @@ export const ERROR = 'ERROR';
 export const addMetaOrder = (
     { payment_id, email, productList, status, status_detail, total, sendAddress }
 ) => async (dispatch) => {
-  await axios.post('http://localhost:3001/metamask/order', {
+  await axios.post(`${baseURL}/metamask/order`, {
       payment_id,
       email,
       productList,
@@ -37,7 +38,7 @@ export const addMetaOrder = (
 
 // Habilitada
 export const getMetaOrders = () => async (dispatch) => {
-  await axios.get(`http://localhost:3001/metamask/orders`).then(
+  await axios.get(`${baseURL}/metamask/orders`).then(
     (response) => {
       dispatch({
         type: GET_META_ORDERS,
@@ -56,7 +57,7 @@ export const getMetaOrders = () => async (dispatch) => {
 export const getMetaUserOrders = (
     { email }
 ) => async (dispatch) => {
-  await axios.get(`http://localhost:3001/metamask/orders?email=${email}`).then(
+  await axios.get(`${baseURL}/metamask/orders?email=${email}`).then(
     (response) => {
       dispatch({
         type: GET_META_USER_ORDERS,
@@ -76,7 +77,7 @@ export const putMetaOrder = (
     {payment_id, email, newStatus, statusDetail}
 ) => async (dispatch) => {
   console.log(payment_id, email, newStatus, statusDetail);
-  await axios.put(`http://localhost:3001/metamask/order`, {
+  await axios.put(`${baseURL}/metamask/order`, {
     payment_id, 
     email, 
     newStatus, 

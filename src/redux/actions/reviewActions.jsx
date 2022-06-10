@@ -1,4 +1,5 @@
 import axios from 'axios';
+import baseURL from '../../index';
 
 export const POST_REVIEW = 'POST_REVIEW';
 export const GET_REVIEWS = 'GET_REVIEWS';
@@ -13,7 +14,7 @@ export const postReview = ({
     email, productTitle, comment, rating, name, lastname, token
 }) => async (dispatch) => {
   console.log(token, 'en action')
-  await axios.post('http://localhost:3001/usuario/review', {
+  await axios.post(`${baseURL}/usuario/review`, {
       email,
       productTitle,
       comment,
@@ -38,7 +39,7 @@ export const postReview = ({
 
 // Habilitada
 export const getReviews = ({token}) => async (dispatch) => {
-  await axios.get('http://localhost:3001/usuario/reviews', {headers: {'Authorization': 'Bearer ' + token}}).then(
+  await axios.get(`${baseURL}/usuario/reviews`, {headers: {'Authorization': 'Bearer ' + token}}).then(
     (response) => {
       dispatch({
         type: GET_REVIEWS,
@@ -58,7 +59,7 @@ export const getReviews = ({token}) => async (dispatch) => {
 export const getProductReviews = ({
     productId
 }) => async (dispatch) => {
-  await axios.get('http://localhost:3001/usuario/review', {
+  await axios.get(`${baseURL}/usuario/review`, {
       productId
   }).then(
     (response) => {
@@ -80,7 +81,7 @@ export const getProductReviews = ({
 export const deleteUserReview = ({
     email, productId
 }) => async (dispatch) => {
-  await axios.delete('http://localhost:3001/usuario/review', {
+  await axios.delete(`${baseURL}/usuario/review`, {
       email,
       productId
   }).then(
@@ -103,7 +104,7 @@ export const deleteUserReview = ({
 export const deleteReviewById = ({
     id
 }) => async (dispatch) => {
-  await axios.delete(`http://localhost:3001/usuario/reviewById/${id}`).then(
+  await axios.delete(`${baseURL}/usuario/reviewById/${id}`).then(
     (response) => {
       dispatch({
         type: DELETE_REVIEW_BY_ID,
