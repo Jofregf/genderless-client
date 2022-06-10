@@ -83,7 +83,7 @@ const AdminEdit = ({activeDrawer, handleHome, product}) => {
             "disabled": false,
             "category": selectCategory
         }
-        dispatch(editProduct(sendData));        
+        dispatch(editProduct(sendData, {token: tokenUser}));        
         handleHome();
         activeDrawer();
     };
@@ -277,7 +277,7 @@ const AdminEdit = ({activeDrawer, handleHome, product}) => {
                             <input
                                 type="submit"
                                 value="EDITAR PRODUCTO"
-                                disabled= {true}
+                                
                             />
                         </div>
                     </div>

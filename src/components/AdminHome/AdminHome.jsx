@@ -10,7 +10,7 @@ import AdminRoles from '../AdminRoles/AdminRoles';
 import AdminOrders from '../AdminOrders/AdminOrders';
 import AdminMetaOrder from '../AdminMetaOrder/AdminMetaOrder';
 import Cookies from "universal-cookie";
-import { Button, Modal } from 'react-bootstrap';
+
 
 function AdminHome() {
   const nav = useNavigate();
@@ -32,9 +32,9 @@ function AdminHome() {
     setState("orders")
   }
 
-  const [show, setShow] = useState(true);
+  // const [, setShow] = useState(true);
 
-  const handleClose = () => setShow(false);
+  // const handleClose = () => setShow(false);
   // const handleShow = () => setShow(false);
 
   // const modal = () => {
@@ -62,7 +62,7 @@ function AdminHome() {
 
   // const DrawerContents = () => (
   //     <div className="DrawerContents__Container"><AdminEdit product={productSend} activeDrawer={activeDrawer} /></div>
-  // // );
+  // );
 
   // const Drawer = ({ drawerActive }) => (
   //     <div className={`Drawer__Container ${drawerActive ? "Drawer__Container--isOpen" : ''}`}>
@@ -102,22 +102,22 @@ function AdminHome() {
           : null
         }
       </div>
-      <Modal
+      {/* <Modal
         show={show}
         onHide={handleClose}
         backdrop="static"
         keyboard={false}
-      >
-        <Modal.Header closeButton>
+      > */}
+        {/* <Modal.Header closeButton>
           <Modal.Title>Advertencia</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
+        </Modal.Header> */}
+        {/* <Modal.Body>
           Para poder mostrar la sección admin, por seguridad desactivamos los botones para crear o editar productos y cambio de roles de usuario!
-        </Modal.Body>
-        <Modal.Footer>
+        </Modal.Body> */}
+        {/* <Modal.Footer>
           <Button variant="primary" onClick={() => handleClose()}>Continuar</Button>
         </Modal.Footer>
-      </Modal>
+      </Modal> */}
     </div>
     : "Usuario sin permiso para esta información"
   )

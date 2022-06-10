@@ -90,7 +90,7 @@ const Register = () => {
 
     function MessageConfirm(data) {
         
-        dispatch(createUser({...data, permission:"admin"}));
+        dispatch(createUser({...data, permission:"user"}));
         setTimeout(() => {
             dispatch(userLogin({email: data.email, password: data.password}))
         }, 1000);

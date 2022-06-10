@@ -71,7 +71,7 @@ function AdminRoles() {
                                 </select>
                             </div>
                             <div className="form-submit-login">                            
-                                <button className='register-btn-admin-roles' type='submit' disabled= {true}>Cambiar rol</button>
+                                <button className='register-btn-admin-roles' type='submit'>Cambiar rol</button>
                             </div>
                         </div>
                     </div>

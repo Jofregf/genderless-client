@@ -12,6 +12,7 @@ export const ERROR = 'ERROR';
 export const postReview = ({
     email, productTitle, comment, rating, name, lastname, token
 }) => async (dispatch) => {
+  console.log(token, 'en action')
   await axios.post('http://localhost:3001/usuario/review', {
       email,
       productTitle,

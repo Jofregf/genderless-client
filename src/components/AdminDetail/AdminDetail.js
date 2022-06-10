@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link} from "react-router-dom";
 import './AdminDetail.css';
 import Cookies from "universal-cookie";
-import ConnectGoogle from "../ConnectGoogle/ConnectGoogle";
+
 
 import { getUser } from "../../redux/actions/userActions";
 
@@ -20,7 +20,7 @@ export default function AdminDetail() {
 
     useEffect(() => {
         dispatch(getUser({ email: user.email, token: tokenUser}))
-    },[])
+    },[dispatch, user.email, tokenUser])
 
     return (
         <div className="container-admin-detail">

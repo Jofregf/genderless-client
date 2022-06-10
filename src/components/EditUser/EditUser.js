@@ -14,7 +14,6 @@ import { Button, Modal } from 'react-bootstrap';
 
 function validate(input){
     let errors = {};
-    console.log(errors)
     if(!/^[a-z A-Z]+$/.test(input.name)||input.name?.length<3 || input.name?.length>30){
         errors.name = "*Campo requerido";
     }
@@ -189,7 +188,7 @@ export default function EditUser  () {
                                 <label className="input-label">*DNI: </label>
                                 <input onChange={(e)=>handlerOnChange(e)}
                                     className="input-register"
-                                    type="number"
+                                    type="text"
                                     name="dni"
                                     value={input.dni}
                                     placeholder= {userEdit?.dni} 

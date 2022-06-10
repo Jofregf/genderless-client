@@ -45,19 +45,19 @@ export default function EditUser  () {
     let cookie = new Cookies();
     const userEdit = useSelector(state => state.userReducer.usuario)
     const user = cookie.get('user')
+    const tokenUser = cookie.get('user')?.tokenSession;
     const nav = useNavigate();
     const dispatch = useDispatch();
     const[errors, setErrors] = useState({});
+    console.log(user)
     const[input, setInput] = useState({
-        email: userEdit.user?.email,
-   
-         
-         name: userEdit.user?.sendAddress?.name,
-         lastName: userEdit.user?.sendAddress?.lastName,
-         address: userEdit.user?.sendAddress?.address,
-         province: userEdit.user?.sendAddress?.province,
-         postal: userEdit.user?.sendAddress?.postal,
-         phone: userEdit.user?.sendAddress?.phone,
+        email: user.email,
+        name: user.name,
+        lastName: user.lastName,
+        address: user.user.address,
+        province: user.user.province,
+        postal: user.user.postal,
+        phone: user.user.phone,
         
      })
      const [modal, setModal] = useState("")
@@ -72,8 +72,8 @@ export default function EditUser  () {
   }
 
   useEffect(() => {
-        dispatch(getUser({ email: user?.email}))
-        // dispatch(getUser({ email: user.email, token: tokenUser}))
+        // dispatch(getUser({ email: user?.email}))
+        dispatch(getUser({ email: user.email, token: tokenUser}))
     },[])
     
     function handlerOnChange (e){
@@ -92,7 +92,7 @@ export default function EditUser  () {
         if(!input.name || !input.lastName || !input.email ||!input.address|| !input.province  || !input.postal|| !input.phone  ){
         modalEdit("no completo todo el formulario!")}
         else{
-        dispatch(updateUser({sendAddress:input,email: userEdit.user?.email}))
+        dispatch(updateUser({sendAddress:input, email: user.email, token: tokenUser}))
         modalEdit("Datos actualizados")
         setInput({
             name:'',
@@ -107,7 +107,6 @@ export default function EditUser  () {
     }
     }
 
-            
     return (
         <div className="container-register-form">
           <form onSubmit={onSubmit} >
@@ -128,7 +127,7 @@ export default function EditUser  () {
                                     type="text"
                                     name="name"
                                     value={input.name}
-                                    placeholder= {userEdit?.name} 
+                                    placeholder= {user.name} 
                                     /> 
                                       {errors.name && <p className="form-register-errors">{errors.name}</p>}
                                 </div>

@@ -95,9 +95,11 @@ export const deleteProduct = (id) => async (dispatch) => {
 };
 
 // Habilitada
-export const editProduct = (sendData) => async (dispatch) => {
-  console.log(sendData, '<<action>>')
-  await axios.put('http://localhost:3001/productos/putproduct', sendData).then(
+export const editProduct = (sendData, {token}) => async (dispatch) => {
+  
+  await axios.put('http://localhost:3001/productos/putproduct', sendData, {headers: {
+    'Authorization': 'Bearer ' + token
+  }}).then(
       (response) => {
         dispatch({
           type: EDIT_PRODUCT,

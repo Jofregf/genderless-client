@@ -7,7 +7,7 @@ const initialState = {
   token: ''
 };
 function userReducer( state = initialState, action) {
-  console.log('action.payload user', action.payload)
+  // console.log('action.payload user', action.payload)
   switch (action.type) {
     case GET_USERS:
       return { ...state, usuarios: action.payload };

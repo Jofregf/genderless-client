@@ -10,7 +10,8 @@ function UserPurchase() {
     const orders = useSelector(state => state.metamaskReducer.ordersUser) 
     const cookies = new Cookies();
     const user = cookies.get('user')?.user
-
+    
+    
     useEffect(() => {
         dispatch(getMetaUserOrders({email: user?.email}));
     },[])

@@ -111,7 +111,9 @@ return ((!pathname.includes("admin") && pathname !=="/")  &&
         : null
       } */}
       {
-        // <Button variant="outline-warning" onClick={() => nav("/admin")}>Panel Admin</Button>
+        cookies.get('user')?.user.permission === 'admin' ?
+        <Button variant="outline-warning" onClick={() => nav("/admin")}>Panel Admin</Button>
+        : null
       }
 
       </Nav>
@@ -138,9 +140,7 @@ return ((!pathname.includes("admin") && pathname !=="/")  &&
   </Container>
   {/* <ConnectGoogle login = {true} logout = {true}></ConnectGoogle> */}
 
-    {/* <div className='chatbot'>
-    <Chatbot/>
-    </div> */}
+    
 </Navbar>
 
   )

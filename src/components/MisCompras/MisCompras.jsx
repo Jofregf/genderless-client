@@ -10,6 +10,7 @@ import Cookies from 'universal-cookie';
 function MisCompras() {
     const cookies = new Cookies();
     const user = cookies.get('user')?.user
+    
     const dispatch = useDispatch()
     const products = useSelector( state => state.metamaskReducer.status) 
 
@@ -29,8 +30,8 @@ function MisCompras() {
     function handleSubmit(event) {
       event.preventDefault();
       
-      dispatch(postReview({comment: input.description, rating: rating, productTitle: input.productTitle, email: cookies.get('user')?.email, name: cookies.get('user')?.user?.name, lastname: cookies.get('user')?.user?.lastName}))
-
+      dispatch(postReview({comment: input.description, rating: rating, productTitle: input.productTitle, email: cookies.get('user')?.email, name: cookies.get('user')?.user?.name, lastname: cookies.get('user')?.user?.lastName, token : cookies.get('user')?.tokenSession}))
+      
       setRating(0);
       setHover(0);
       setInput({

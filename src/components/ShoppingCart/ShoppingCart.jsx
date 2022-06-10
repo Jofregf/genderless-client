@@ -102,8 +102,8 @@ export default function ShoppingCart ( ) {
         quantity: shopping?.products.map((e) => e.UserProduct?.quantity)
     }
 
-    console.log('shopping', shopping.products)
-    console.log('shoppingCookie', shoppingCookie)
+    // console.log('shopping', shopping.products)
+    // console.log('shoppingCookie', shoppingCookie)
 return (<div>
             {
                 shopping?.products.length || shoppingCookie?.length
@@ -133,9 +133,10 @@ return (<div>
                                     <div className="name-size">
                                 
                                            
-                                        <p>Direccion: {userEdit?.user?.sendAddress?.address?userEdit?.user?.sendAddress?.address:userEdit?.user?.address}</p>
-                                        <p>CP: {userEdit?.user?.sendAddress?.postal?userEdit?.user?.sendAddress?.postal:userEdit?.user?.postal} - {userEdit?.user?.sendAddress?.province?userEdit?.user?.sendAddress?.province:userEdit?.user?.province} </p>
-                                    <p>{userEdit?.user?.sendAddress?.name?userEdit?.user?.sendAddress?.name:userEdit?.user?.name} {userEdit?.user?.sendAddress?.lastName?userEdit?.user?.sendAddress?.lastName:userEdit?.user?.lastName} - {userEdit?.user?.sendAddress?.phone?userEdit?.user?.sendAddress?.phone:userEdit?.user?.phone}</p>
+                                    <p>Nombre: {userEdit?.user?.sendAddress?.name?userEdit?.user?.sendAddress?.name:userEdit?.user?.name} {userEdit?.user?.sendAddress?.lastName?userEdit?.user?.sendAddress?.lastName:userEdit?.user?.lastName} </p>
+                                    <p>Teléfono: {userEdit?.user?.sendAddress?.phone?userEdit?.user?.sendAddress?.phone:userEdit?.user?.phone}</p>
+                                    <p>Direccion: {userEdit?.user?.sendAddress?.address?userEdit?.user?.sendAddress?.address:userEdit?.user?.address}</p>
+                                    <p>CP: {userEdit?.user?.sendAddress?.postal?userEdit?.user?.sendAddress?.postal:userEdit?.user?.postal} - {userEdit?.user?.sendAddress?.province?userEdit?.user?.sendAddress?.province:userEdit?.user?.province} </p>
                                          
 
                                     </div>

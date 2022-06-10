@@ -5,21 +5,26 @@ import { VscEye } from 'react-icons/vsc';
 import { VscEyeClosed } from 'react-icons/vsc';
 import { useDispatch } from 'react-redux';
 import { editProduct } from '../../redux/actions/productActions';
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+import Cookies from "universal-cookie";
+
 
 
 function AdminCardProduct ( { image, name, stock_by_size, price, disabled, activeDrawer, id, producto , receiveProduct },  ) {
   const dispatch = useDispatch();
+  let cookie = new Cookies();
+    const tokenUser = cookie.get('user')?.tokenSession
   const [disabledCard, setDisabledCard] = useState(disabled)
   const handleEdit = (e) => {
     e.preventDefault();
     // activeDrawer();
     receiveProduct(producto)
   }
+  
 
   const handleDisabled = (e) => {
     e.preventDefault();
-    dispatch(editProduct({id, "disabled": !disabled}));
+    dispatch(editProduct({id, "disabled": !disabled}, {token: tokenUser}));
     setDisabledCard(!disabledCard);
   }
 

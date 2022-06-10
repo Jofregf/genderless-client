@@ -28,32 +28,32 @@ export default function AdminOrders({ viewOrder, metaOrder }) {
       )
     : "hola";
 
-    console.log('meta', meta)
+    // console.log('meta', meta)
   return (
     <div className="container-articulos">
       <div className="container_stats">
         <div className="container_productos">
           <p>Total Ventas</p>
           <h1>
-            {meta ? (
+            {meta && meta.length > 0 ? (
               meta?.reduce((a, b) => {
                 /* console.log(b?.productList.map(a => a.UserProduct.quantity).reduce((a,b)=>{ return a + b}), "hola") */
                 return a + b.total;
               }, 0)
             ) : (
-              <p className="text-no-products">Loading...</p>
+              <p className="text-no-sales">No se han realizado ventas</p>
             )}
           </h1>
         </div>
         <div className="container_productos">
           <p>Productos Vendidos</p>
           <h1>
-            {meta ? (
+            {meta && meta.length > 0 ? (
               totalVentas?.reduce((a, b) => {
                 return a + b;
               })
             ) : (
-              <p className="text-no-products">Loading...</p>
+              <p className="text-no-sales">No se han realizado ventas</p>
             )}
           </h1>
         </div>
