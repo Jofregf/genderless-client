@@ -1,5 +1,5 @@
 import axios from 'axios';
-import baseURL from '../../index';
+
 
 export const ADD_META_ORDER = 'ADD_META_ORDER';
 export const GET_META_ORDERS = 'GET_META_ORDERS';
@@ -7,7 +7,7 @@ export const PUT_META_ORDER = 'PUT_META_ORDER';
 export const GET_META_USER_ORDERS = 'GET_META_USER_ORDERS';
 
 export const ERROR = 'ERROR';
-
+const baseURL = process.env.REACT_APP_API || "http://localhost:3001";
 // Habilitada
 export const addMetaOrder = (
     { payment_id, email, productList, status, status_detail, total, sendAddress }

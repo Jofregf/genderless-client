@@ -1,5 +1,4 @@
 import axios from 'axios';
-import baseURL from '../../index';
 
 export const ADD_PRODUCT = 'ADD_PRODUCT'
 export const GET_FAVORITES = 'GET_FAVORITES'
@@ -7,7 +6,7 @@ export const REMOVE_PRODUCT = 'REMOVE_PRODUCT'
 export const ERROR = 'ERROR';
 export const DELETE_PRODUCT_ID = 'DELETE_PRODUCT_ID';
 
-
+const baseURL = process.env.REACT_APP_API || "http://localhost:3001";
 // Habilitada
 export const addfavProduct = ( {email, productId} ) => async (dispatch) => {
   await axios.post(`${baseURL}/usuario/favorites`, { email, productId }).then(

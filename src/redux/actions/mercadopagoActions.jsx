@@ -1,5 +1,5 @@
 import axios from 'axios';
-import baseURL from '../../index';
+
 
 export const MERCADO_CHECKOUT = 'MERCADO_CHECKOUT';
 export const CHANGE_ORDER_STATE = 'CHANGE_ORDER_STATE';
@@ -12,7 +12,7 @@ export const SUCCESS = 'SUCCESS';
 export const GET_INFO_VIEW = 'GET_INFO_VIEW';
 
 export const ERROR = 'ERROR';
-
+const baseURL = process.env.REACT_APP_API || "http://localhost:3001";
 export const infoView = ({id}) => async (dispatch) => {
   
   await axios.get(`${baseURL}/mercado/view/${id}`).then(

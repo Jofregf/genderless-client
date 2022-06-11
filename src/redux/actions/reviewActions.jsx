@@ -1,5 +1,5 @@
 import axios from 'axios';
-import baseURL from '../../index';
+
 
 export const POST_REVIEW = 'POST_REVIEW';
 export const GET_REVIEWS = 'GET_REVIEWS';
@@ -7,7 +7,7 @@ export const GET_PRODUCT_REVIEWS = 'GET_PRODUCT_REVIEWS';
 export const DELETE_REVIEW_BY_ID = 'DELETE_REVIEW_BY_ID';
 export const DELETE_USER_REVIEWS = 'DELETE_USER_REVIEWS';
 export const ERROR = 'ERROR';
-
+const baseURL = process.env.REACT_APP_API || "http://localhost:3001";
 
 // Habilitada
 export const postReview = ({

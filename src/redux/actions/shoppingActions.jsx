@@ -1,5 +1,5 @@
 import axios from 'axios';
-import baseURL from '../../index';
+
 
 export const ADD_PRODUCT = 'ADD_PRODUCT'
 export const GET_SHOPPING = 'GET_SHOPPING'
@@ -9,7 +9,7 @@ export const TOTAL_SHOPPING = 'TOTAL_SHOPPING'
 export const TOTAL_DELETE_SHOPPING = 'TOTAL_DELETE_SHOPPING'
 export const STATE_NAVBAR = 'STATE_NAVBAR'
 export const ERROR = 'ERROR';
-
+const baseURL = process.env.REACT_APP_API || "http://localhost:3001";
 // Habilitada
 export const addProduct = ( {email, productId, productSize, productQuantity} ) => async (dispatch) => {
   await axios.post(`${baseURL}/usuario/shoppingcart`, { email, productId, productSize, productQuantity }).then(

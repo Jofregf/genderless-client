@@ -1,12 +1,12 @@
 import axios from 'axios';
-import baseURL from '../../index';
+
 
 export const SUBSCRIBE_NEWSLETTER = 'SUBSCRIBE_NEWSLETTER';
 export const SUBSCRIBE_FAVORITES = 'SUBSCRIBE_FAVORITES';
 export const UNSUBSCRIBE_NEWSLETTER = 'UNSUBSCRIBE_NEWSLETTER';
 
 export const ERROR = 'ERROR';
-
+const baseURL = process.env.REACT_APP_API || "http://localhost:3001";
 // Habilitada
 export const subscribeNewsletter = ({
     email
