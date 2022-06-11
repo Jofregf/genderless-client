@@ -38,7 +38,7 @@ const DetailProduct = () => {
     }    }, [dispatch, id])
     
     useEffect(() => {
-      (productInFavorites.length || productInFavoritesCookies.length) && setFavorite(true) 
+      (productInFavorites?.length || productInFavoritesCookies?.length) && setFavorite(true) 
     }, [productsFavorites, favoriteCookie])
     
     

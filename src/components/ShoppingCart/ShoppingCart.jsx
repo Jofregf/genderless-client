@@ -20,12 +20,14 @@ export default function ShoppingCart ( ) {
     const total = shopping.totalShopping.length 
                 ? shopping.totalShopping?.reduce((a,b) => a + b).toFixed(2)
                 : 0;
-
+    
     const [refreshCardSlim, setRefreshCardSlim] = useState(false)
 
     const deleteProductShopping = () => {
         setRefreshCardSlim(!refreshCardSlim)
     }
+    const baseURL = process.env.REACT_APP_API || "http://localhost:3001";
+    const merca = baseURL + '/mercado/checkout'
 
     useEffect(() => {
         cookie.set('totalShopping', total, { path: '/', expires: new Date(Date.now() + (3600 * 1000 * 24))})
@@ -206,7 +208,7 @@ return (<div>
                                     </div>
                                     <div className="cart-mp">
                                         <p>Ir a pagar</p>
-                                            <form className="form-mp" action='http://localhost:3001/mercado/checkout' method='POST'>
+                                            <form className="form-mp" action={merca} method='POST'>
                                             <input type='hidden' name='name' value={data.name}></input>
                                             <input type='hidden' name='picture_url' value={data.picture_url}></input>
                                             <input type='hidden' name='size' value={data.size} ></input>
