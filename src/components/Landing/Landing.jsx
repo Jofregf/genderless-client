@@ -25,14 +25,14 @@ function Landing() {
     const [index, setIndex] = useState(0);
     const [input, setInput] = useState("");
     const nav = useNavigate()
-    const productos = useSelector((state) => state.productReducer.productos);
+    const productos = useSelector((state) => state.productReducer.productos.reverse());
     
     const [msg, setMsg] = useState("");
-    const prodsFinal = productos?.filter(p => p.disabled === false);
-
+    const prodsFinal = productos.filter(p => p.disabled === false);
+    // console.log(prodsFinal)
     useEffect(() => {
       dispatch(getProducts());
-    }, []);
+    }, [])
 
     const handleSelect = (selectedIndex, e) => {
       setIndex(selectedIndex);

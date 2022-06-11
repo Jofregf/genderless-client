@@ -1,5 +1,5 @@
 import axios from 'axios';
-import baseURL from '../../index';
+// import baseURL from '../../index';
 
 export const GET_PRODUCTS = 'GET_PRODUCTS';
 export const GET_PRODUCT = 'GET_PRODUCT';
@@ -12,9 +12,10 @@ export const GET_MOST_SELL = 'GET_MOST_SELL';
  * FILTROS
  *****/
 export const FILTER_BY_NAME = 'FILTER_BY_NAME';
-
+const baseURL = process.env.REACT_APP_API || "http://localhost:3001";
 // Habilitada
 export const getProducts = () => async (dispatch) => {
+  console.log(`${baseURL}`);
   await axios.get(`${baseURL}/productos`).then(
     (response) => {
       dispatch({

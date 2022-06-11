@@ -1,6 +1,6 @@
 import axios from 'axios';
 import Cookies from 'universal-cookie';
-import baseURL from '../../index';
+
 export const GET_USERS = 'GET_USERS';
 export const GET_USER = 'GET_USER';
 export const CREATE_USER = 'CREATE_USER';
@@ -11,9 +11,10 @@ export const USER_LOGOUT = 'USER_LOGOUT';
 export const UPDATE_USER_ROL = 'UPDATE_USER_ROL';
 export const FORGOT_PASSWORD = 'FORGOT_PASSWORD';
 export const ERROR = 'ERROR';
-
+const baseURL = process.env.REACT_APP_API || "http://localhost:3001";
 // Habilitada
 export const getUsers = () => async (dispatch) => {
+  // console.log(`${baseURL}`);
   await axios.get(`${baseURL}/usuarios`).then(
     (response) => {
       dispatch({

@@ -12,12 +12,11 @@ import Paged from '../Pagination/Pagination';
 
 function Home({alert, setAlert, soporte}) {
   const dispatch = useDispatch();
-  const productos = useSelector((state) => state.productReducer.productos);
-  
+  const productos = useSelector((state) => state.productReducer.productos.reverse());
   useEffect(() => {
     dispatch(getProducts());
     soporte();
-  }, [dispatch, soporte]);
+  }, []);
 
   // useEffect(()=> {
   // },[])
@@ -31,7 +30,7 @@ function Home({alert, setAlert, soporte}) {
   const lastIndexProd = currentPage * prodPerPage;
   const firstIndexProd = lastIndexProd - prodPerPage;
   const currentProds = productos.slice(firstIndexProd, lastIndexProd);
-  const prodsFinal = currentProds?.filter(p => p.disabled === false);
+  const prodsFinal = currentProds.filter(p => p.disabled === false);
   const Page = (pageNumber) => {
     setCurrentPage(pageNumber);
     window.scrollTo(0, 0);
