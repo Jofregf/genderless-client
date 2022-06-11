@@ -28,7 +28,7 @@ function Landing() {
     const productos = useSelector((state) => state.productReducer.productos);
     
     const [msg, setMsg] = useState("");
-    const prodsFinal = productos.filter(p => p.disabled === false);
+    const prodsFinal = productos?.filter(p => p.disabled === false);
 
     useEffect(() => {
       dispatch(getProducts());

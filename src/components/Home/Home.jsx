@@ -31,7 +31,7 @@ function Home({alert, setAlert, soporte}) {
   const lastIndexProd = currentPage * prodPerPage;
   const firstIndexProd = lastIndexProd - prodPerPage;
   const currentProds = productos.slice(firstIndexProd, lastIndexProd);
-  const prodsFinal = currentProds.filter(p => p.disabled === false);
+  const prodsFinal = currentProds?.filter(p => p.disabled === false);
   const Page = (pageNumber) => {
     setCurrentPage(pageNumber);
     window.scrollTo(0, 0);
