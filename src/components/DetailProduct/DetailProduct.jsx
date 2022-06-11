@@ -8,7 +8,7 @@ import { addProduct, stateNav } from '../../redux/actions/shoppingActions';
 import { BsSuitHeartFill } from 'react-icons/bs';
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 import { TiArrowBack } from 'react-icons/ti';
-import { Card, Container} from 'react-bootstrap'
+import { Button, Card, Container, Form, FormControl, InputGroup } from 'react-bootstrap'
 import Cookies from 'universal-cookie';
 import { getReviews, postReview } from '../../redux/actions/reviewActions'
 
@@ -25,7 +25,7 @@ const DetailProduct = () => {
   const shoppingCookie = cookies.get('shopping')
   const favoriteCookie = cookies.get('favorite')
   const productsFavorites = useSelector( state => state.favoriteReducer.favorites)
-  const productInFavorites = productsFavorites?.filter(p=> p.id === id)
+  const productInFavorites = productsFavorites?.filter(p=> p.id == id)
   const productInFavoritesCookies = favoriteCookie?.filter(p=> p.id == id)
   const [favorite, setFavorite] = useState(false)
 
@@ -50,7 +50,7 @@ const DetailProduct = () => {
     cookies.set('favorite', [], { path: '/', expires: new Date(Date.now() + (3600 * 1000 * 24))}); //1 dia
     }
   const addShoppingCart = () => {
-    if(!sizeSelect) return setShow("Debe seleccionar un talle")
+    if(!sizeSelect) return setShow("Seleccionar size para añadir")
     if(!user){
       dispatch(stateNav())
       const item = {...product, UserProduct: {id: product.id, size: sizeSelect} }
