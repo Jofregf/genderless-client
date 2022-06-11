@@ -13,10 +13,11 @@ import Paged from '../Pagination/Pagination';
 function Home({alert, setAlert, soporte}) {
   const dispatch = useDispatch();
   const productos = useSelector((state) => state.productReducer.productos);
+  
   useEffect(() => {
     dispatch(getProducts());
     soporte();
-  }, []);
+  }, [dispatch, soporte]);
 
   // useEffect(()=> {
   // },[])
