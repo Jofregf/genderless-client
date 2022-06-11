@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-
+import baseUrl from '../../index';
 import './Landing.css';
 import axios from 'axios'
 import { Link, useNavigate } from 'react-router-dom';
@@ -50,7 +50,7 @@ function Landing() {
     }
 
     const handleSusbribe = async () => {
-      await axios.post('http://localhost:3001/usuario/newsletter', {
+      await axios.post(`${baseUrl}/usuario/newsletter`, {
             // email
             "email": input
         }).then( response => {
