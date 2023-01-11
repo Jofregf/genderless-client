@@ -258,7 +258,7 @@ function Landing() {
                     className="cardLandingImage"
                     alt=""
                     preview={false}
-                    src="https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2Fe6%2F96%2Fe6960f61a036b0cbe5b410ec057c05bbbb071725.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BLOOKBOOK%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]"
+                    src="https://i.imgur.com/qXuD5ss.jpg"
                   />
                   <div className="card-container"></div>
                   <div className="info">
